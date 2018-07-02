@@ -17,7 +17,6 @@
         owner: '{{ frappe_user }}'
         group: '{{ frappe_user }}'
         recurse: yes
-        follow: no
       when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'CentOS' or ansible_distribution == 'Debian'
 
     - name: Set home folder perms
