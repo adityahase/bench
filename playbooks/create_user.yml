@@ -7,10 +7,16 @@
         name: '{{ frappe_user }}'
         generate_ssh_key: yes
 
-    - name: List broken symlinks
+    - name: List broken symlinks in cwd
       command: find . -xtype l
 
-    - name: Set home folder perms
+    - name: List broken symlinks in home
+      command: find ~ -xtype l
+
+    - name: List broken symlinks in /
+      command: find / -xtype l
+
+      - name: Set home folder perms
       file:
         path: '/home/{{ frappe_user }}'
         mode: 'o+rx'
