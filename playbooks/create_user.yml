@@ -16,7 +16,7 @@
     - name: List broken symlinks in /
       command: find / -xtype l
 
-      - name: Set home folder perms
+    - name: Set home folder perms
       file:
         path: '/home/{{ frappe_user }}'
         mode: 'o+rx'
