@@ -229,8 +229,8 @@ class TestBenchInit(unittest.TestCase):
 				self.assertTrue(search_key in f)
 
 	def assert_socketio(self, bench_name):
-		self.assert_exists(bench_name, "node_modules")
-		self.assert_exists(bench_name, "node_modules", "socket.io")
+		self.assert_exists(bench_name, "apps", "frappe", "node_modules")
+		self.assert_exists(bench_name, "apps", "frappe", "node_modules", "socket.io")
 
 	def assert_common_site_config(self, bench_name, expected_config):
 		common_site_config_path = os.path.join(bench_name, 'sites', 'common_site_config.json')
