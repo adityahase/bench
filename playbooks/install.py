@@ -114,7 +114,7 @@ def install_bench(args):
 	else:
 		erpnext_branch = 'master' if args.production else 'develop'
 	extra_vars.update(erpnext_branch=erpnext_branch)
-	
+
 	bench_name = 'frappe-bench' if not args.bench_name else args.bench_name
 	extra_vars.update(bench_name=bench_name)
 
@@ -170,7 +170,7 @@ def install_python27():
 		could_not_install('Python 2.7')
 
 	# replace current python with python2.7
-	os.execvp('python2.7', ([] if is_sudo_user() else ['sudo']) + ['python2.7', __file__] + sys.argv[1:])
+	# os.execvp('python2.7', ([] if is_sudo_user() else ['sudo']) + ['python2.7', __file__] + sys.argv[1:])
 
 def install_package(package):
 	package_exec = find_executable(package)
@@ -355,7 +355,7 @@ def parse_commandline_args():
 
 	parser.add_argument('--site', dest='site', action='store', default='site1.local',
 		help='Specifiy name for your first ERPNext site')
-	
+
 	parser.add_argument('--without-site', dest='without_site', action='store_true',
 		default=False)
 
@@ -373,10 +373,10 @@ def parse_commandline_args():
 
 	parser.add_argument('--frappe-branch', dest='frappe_branch', action='store',
 		help='Clone a particular branch of frappe')
-	
+
 	parser.add_argument('--erpnext-repo-url', dest='erpnext_repo_url', action='store', default='https://github.com/frappe/erpnext',
 		help='Clone erpnext from the given url')
-	
+
 	parser.add_argument('--erpnext-branch', dest='erpnext_branch', action='store',
 		help='Clone a particular branch of erpnext')
 
@@ -389,7 +389,7 @@ def parse_commandline_args():
 
 	parser.add_argument('--without-bench-setup', dest='without_bench_setup', action='store_true', default=False,
 		help=argparse.SUPPRESS)
-	
+
 	# whether to overwrite an existing bench
 	parser.add_argument('--overwrite', dest='overwrite', action='store_true', default=False,
 		help='Whether to overwrite an existing bench')
