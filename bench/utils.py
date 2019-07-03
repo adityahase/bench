@@ -80,7 +80,8 @@ def init(path, apps_path=None, no_procfile=False, no_backups=False,
 
 	bench.set_frappe_version(bench_path=path)
 	if bench.FRAPPE_VERSION > 5:
-		update_node_packages(bench_path=path)
+		if not skip_assets:
+			update_node_packages(bench_path=path)
 
 	set_all_patches_executed(bench_path=path)
 	if not skip_assets:
